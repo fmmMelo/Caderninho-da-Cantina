@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="layout.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+	
+	<nav>
+
+			<img src="if.png">
+
+		<div class="logo">Caderninho da Tia</div>
+		
+		<ul class="nav-links">
+			<li><a href="#Inserir"  onclick = "view('1')">Inserir</a></li>
+
+			<li><a href="#Procurar" onclick = "view('2')">Procurar</a></li>
+
+			<li><a href="#Agenda" onclick = "view('3')">Agenda</a></li>
+
+			<li><a href="#Procurar" onclick = "view('4')">Editar dados</a></li>
+
+			<li><a href="#Procurar" onclick = "view('5')">Deletar cliente</a></li>
+
+		</ul>
+
+	</nav>
+
+	<section>
+		
+	</section>
+
+	<section>
+
+			<div id = "Inserir" class="container_form">
+				<h1>Registrar</h1>
+
+				<p><input type = "text" placeholder = "Nome" id = "insert-nome"></p>
+				<p><input type = "email" placeholder = "E-mail" id = "insert-email"></p>
+				<p><input type = "number" placeholder = "CPF" id = "insert-CPF"></p>
+				<p><input type = "date" placeholder = "Data de Nascimento" id = "insert-DN"></p>
+				<button class = "confirmar" onclick = "salvar()" >Enviar</button>
+				<button class = "voltar" onclick = "apagar()" >Apagar</button>
+			</div>
+
+			<div id = "Agenda" class="invisivel">
+					
+					<h1>Agenda dos clientes</h1>
+					<p><button class = "voltar" onclick = "voltar()" >Voltar</button></p>
+	
+					<div id = "listar"></div>
+
+			</div>
+
+			<div id = "Procurar" class="invisivel">
+					
+					<h1>Buscas de clientes</h1>
+					<p><input type = "CPF" placeholder = "Insiria o CPF do cliente!" id = "CPF"></p>
+
+					<div id = "pegar"></div>
+
+					<button class = "editar" onclick = "procurar(CPF.value, '1')" >Procurar</button>
+					<button class = "voltar" onclick = "voltar()" >Voltar</button>
+	
+					<div id = "listar" class="mensagens"></div>
+					
+			</div>
+
+			<div id = "Editar" class="invisivel">
+					
+					<h1>Editar de cliente</h1>
+					<p><input type = "CPF" placeholder = "Insiria o CPF do cliente!" id = "CPF_busca"></p>
+
+					<button class = "editar" onclick = "procurar(CPF_busca.value, '2')" >Procurar</button>
+
+					<div id="atualizar" class='container_form'>
+
+							<label>Nome:</label>
+							<p><input type="text" id = 'at_nome'></p>
+				
+							<label>E-mail:</label>
+							<p><input type="text" id = 'at_email'></p>
+				
+							<label>CPF:</label>
+							<p><input type="text" id = 'at_cpf'></p>
+				
+							<label>Nascimento:</label>
+							<p><input type="date" id = 'at_dn'></p>
+
+							<button onclick="atualizar(at_nome.value, at_email.value, at_cpf.value, at_dn.value)">Atualizar</button>
+						</div>
+						<button onclick="voltar();">voltar</button>
+	
+					<div id = "listar" class="mensagens"></div>
+					
+			</div>
+
+			<div id = "Remover" class="invisivel">
+					
+					<h1>Remover cliente</h1>
+					<p><input type = "CPF" placeholder = "Insiria o CPF do cliente!" id = "CPF_del"></p>
+
+					<button class = "editar" onclick = "procurar(CPF_del.value, '3')" >Procurar</button>
+
+					<div id="del" class='container_form'>
+
+							<label>Nome:</label>
+							<p><input type="text" id = 're_nome_disabled' disabled></p>
+
+							<label>E-mail:</label>
+							<p><input type="email" id = 're_email_disabled' disabled></p>
+
+							<label>CPF:</label>
+							<p><input type="text" id = 're_cpf_disabled' disabled></p>
+
+							<label>Nascimento:</label>
+							<p><input type="text" id = 're_nasc_disabled' disabled></p>
+
+							<button onclick="remover()">Remover</button>
+						
+					</div>
+
+						<button onclick="voltar();">voltar</button>
+					
+			</div>
+
+
+
+	</section>
+</body>
+
+<script src="user.js"></script>
+<script src="app.js"></script>
+</html>
